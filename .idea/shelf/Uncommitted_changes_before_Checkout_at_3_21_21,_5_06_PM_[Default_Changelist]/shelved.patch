@@ -1,0 +1,176 @@
+Index: srcs/push_swap.c
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* ************************************************************************** */\n/*                                                                            */\n/*                                                        :::      ::::::::   */\n/*   push_swap.c                                        :+:      :+:    :+:   */\n/*                                                    +:+ +:+         +:+     */\n/*   By: ptycho <marvin@42.fr>                      +#+  +:+       +#+        */\n/*                                                +#+#+#+#+#+   +#+           */\n/*   Created: 2021/03/12 20:11:00 by ptycho            #+#    #+#             */\n/*   Updated: 2021/03/12 20:11:00 by ptycho           ###   ########.fr       */\n/*                                                                            */\n/* ************************************************************************** */\n\n#include \"list/ft_list.h\"\n#include \"libft/libft.h\"\n#include \"../includes/push_swap.h\"\n#include <unistd.h>\n#include <stdlib.h>\n#include <stdio.h>\n\nint \tsa_is_needed(t_list **head, t_list *cur, int max_m)\n{\n\tint m;\n\n\tft_list_swap(head);\n\tm = number_of_remaining(cur);\n\tif (m <= max_m)\n\t\tft_list_swap(head);\n\telse\n\t{\n\t\twrite(1, \"sa\\n\", 3);\n\t\treturn (1);\n\t}\n\treturn (0);\n}\n\nvoid \tcalculate_num_of_comm(t_list **head_a, t_list **head_b)\n{\n\tint push;\n\tint keep;\n\tt_list *cur;\n\tt_list *tmp;\n\tt_list *max;\n\tt_list *min;\n\tt_list *real_need;\n\tt_list *real_need_p;\n\tint ma_in;\n\tint mi_in;\n\tint i_real_need;\n\tint i_real_need_two;\n\tint i;\n\n\tpush = ft_list_size(*head_b);\n\tkeep = 0;\n\tcur = *head_b;\n\twhile (cur)\n\t{\n\t\tif (keep <= push / 2)\n\t\t{\n\t\t\tcur->c_com = keep;\n\t\t\tcur->info->r_b = keep;\n\t\t\tcur->info->stack_b_rot = 1;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tcur->c_com = push - keep;\n\t\t\tcur->info->r_b = push - keep;\n\t\t\tcur->info->stack_b_rot = 0;\n\t\t}\n\t\tcur = cur->next;\n\t\tkeep++;\n\t}\n\tpush = ft_list_size(*head_a);\n\tmax = *head_a;\n\tmin = *head_a;\n\tma_in = 0;\n\tmi_in = 0;\n\ti = 0;\n\ttmp = *head_a;\n\twhile (tmp)\n\t{\n\t\tif (tmp->in > max->in)\n\t\t{\n\t\t\tmax = tmp;\n\t\t\tma_in = i;\n\t\t}\n\t\tif (tmp->in < min->in)\n\t\t{\n\t\t\tmin = tmp;\n\t\t\tmi_in = i;\n\t\t}\n\t\ti++;\n\t\ttmp = tmp->next;\n\t}\n\tcur = *head_b;\n\twhile (cur)\n\t{\n\t\ti = 0;\n\t\tt_list *help = *head_a;\n\t\ti_real_need = 0;\n\t\ti_real_need_two = INT32_MAX;\n\t\thelp = *head_a;\n\t\twhile (help)\n\t\t{\n\t\t\tif (i_real_need_two > help->in)\n\t\t\t\ti_real_need_two = help->in;\n\t\t\thelp = help->next;\n\t\t}\n\t\twhile ((*head_a)->in != i_real_need_two)\n\t\t{\n\t\t\tft_list_rotate(head_a);\n\t\t\ti_real_need++;\n\t\t}\n\t\treal_need = (*head_a)->next;\n\t\treal_need_p = *head_a;\n\t\ti_real_need_two = 0;\n\t\twhile (real_need_p && real_need)\n\t\t{\n\t\t\tif (cur->in > real_need_p->in && cur->in < real_need->in)\n\t\t\t\tbreak ;\n\t\t\ti_real_need_two++;\n\t\t\treal_need_p = real_need;\n\t\t\treal_need = real_need->next;\n\t\t}\n\t\tif (!real_need)\n\t\t\treal_need = real_need_p;\n\t\twhile (i_real_need > 0)\n\t\t{\n\t\t\tft_list_rev_rotate(head_a);\n\t\t\ti_real_need--;\n\t\t}\n\t\ti_real_need = 0;\n\t\thelp = *head_a;\n\t\twhile (help->in != real_need->in)\n\t\t{\n\t\t\ti_real_need++;\n\t\t\thelp = help->next;\n\t\t}\n\t\tif (cur->in > max->in)\n\t\t{\n\t\t\tif (ma_in <= push / 2)\n\t\t\t{\n\t\t\t\tcur->c_com += ma_in + 1;\n\t\t\t\tcur->info->r_a = ma_in + 1;\n\t\t\t\tcur->info->stack_a_rot = 1;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tcur->c_com += push - ma_in - 1;\n\t\t\t\tcur->info->r_a = push - ma_in - 1;\n\t\t\t\tcur->info->stack_a_rot = 0;\n\t\t\t}\n\t\t}\n\t\telse if (cur->in < min->in)\n\t\t{\n\t\t\tif (mi_in <= push / 2)\n\t\t\t{\n\t\t\t\tcur->c_com += mi_in;\n\t\t\t\tcur->info->r_a = mi_in;\n\t\t\t\tcur->info->stack_a_rot = 1;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tcur->c_com += push - mi_in;\n\t\t\t\tcur->info->r_a = push - mi_in;\n\t\t\t\tcur->info->stack_a_rot = 0;\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif (i_real_need <= push / 2)\n\t\t\t{\n\t\t\t\tcur->c_com += i_real_need;\n\t\t\t\tcur->info->r_a = i_real_need;\n\t\t\t\tcur->info->stack_a_rot = 1;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tcur->c_com += push - i_real_need;\n\t\t\t\tcur->info->r_a = push - i_real_need;\n\t\t\t\tcur->info->stack_a_rot = 0;\n\t\t\t}\n\t\t}\n\t\tcur = cur->next;\n\t}\n}\n\nt_list *from_a_to_b_by_mark(t_list **head_a, t_list *head_b)\n{\n\tint push;\n\tint keep;\n\tt_list *cur;\n\tt_list *min_c;\n\n\tcur = make_markup_by_in(*head_a);\n\tkeep = number_of_remaining(cur);\n\tpush = ft_list_size(*head_a) - keep;\n\twhile (push > 0)\n\t{\n\t\tif (sa_is_needed(head_a, cur, keep))\n\t\t{\n\t\t\tkeep++;\n\t\t\tpush--;\n\t\t}\n\t\telse if ((*head_a)->keep == 0)\n\t\t{\n\t\t\tft_list_put(head_a, &head_b);\n\t\t\twrite(1, \"pb\\n\", 3);\n\t\t\tpush--;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tft_list_rotate(head_a);\n\t\t\twrite(1, \"ra\\n\", 3);\n\t\t}\n\t}\n\tpush = ft_list_size(head_b);\n\twhile (push > 0)\n\t{\n\t\tcalculate_num_of_comm(head_a, &head_b);\n\t\tmin_c = head_b;\n\t\tcur = head_b;\n\t\twhile (cur)\n\t\t{\n\t\t\tif (cur->c_com < min_c->c_com)\n\t\t\t\tmin_c = cur;\n\t\t\tcur = cur->next;\n\t\t}\n\t\tcur = min_c;\n\t\twhile (cur->info->r_b > 0 && cur->info->r_a > 0 &&\n\t\t((cur->info->stack_b_rot && cur->info->stack_a_rot) ||\n\t\t(!cur->info->stack_b_rot && !cur->info->stack_a_rot)))\n\t\t{\n\t\t\tif (cur->info->stack_b_rot && cur->info->stack_a_rot)\n\t\t\t{\n\t\t\t\tft_list_rotate(head_a);\n\t\t\t\tft_list_rotate(&head_b);\n\t\t\t\twrite(1, \"rr\\n\", 3);\n\t\t\t}\n\t\t\telse if (!cur->info->stack_b_rot && !cur->info->stack_a_rot)\n\t\t\t{\n\t\t\t\tft_list_rev_rotate(head_a);\n\t\t\t\tft_list_rev_rotate(&head_b);\n\t\t\t\twrite(1, \"rrr\\n\", 4);\n\t\t\t}\n\t\t\tcur->info->r_b--;\n\t\t\tcur->info->r_a--;\n\t\t}\n\t\twhile (cur->info->r_b > 0)\n\t\t{\n\t\t\tif (cur->info->stack_b_rot)\n\t\t\t{\n\t\t\t\tft_list_rotate(&head_b);\n\t\t\t\twrite(1, \"rb\\n\", 3);\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tft_list_rev_rotate(&head_b);\n\t\t\t\twrite(1, \"rrb\\n\", 4);\n\t\t\t}\n\t\t\tcur->info->r_b--;\n\t\t}\n\t\twhile (cur->info->r_a > 0)\n\t\t{\n\t\t\tif (cur->info->stack_a_rot)\n\t\t\t{\n\t\t\t\tft_list_rotate(head_a);\n\t\t\t\twrite(1, \"ra\\n\", 3);\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tft_list_rev_rotate(head_a);\n\t\t\t\twrite(1, \"rra\\n\", 4);\n\t\t\t}\n\t\t\tcur->info->r_a--;\n\t\t}\n\t\tft_list_put(&head_b, head_a);\n\t\twrite(1, \"pa\\n\", 3);\n\t\tpush--;\n\t}\n\tkeep = 0;\n\tpush = ft_list_size(*head_a);\n\tcur = *head_a;\n\twhile (cur)\n\t{\n\t\tif (cur->in == 0)\n\t\t\tbreak ;\n\t\tcur = cur->next;\n\t\tkeep++;\n\t}\n\twhile ((*head_a)->in != 0)\n\t{\n\t\tif (keep <= push / 2)\n\t\t{\n\t\t\tft_list_rotate(head_a);\n\t\t\twrite(1, \"ra\\n\", 3);\n\t\t}\n\t\telse\n\t\t{\n\t\t\tft_list_rev_rotate(head_a);\n\t\t\twrite(1, \"rra\\n\", 4);\n\t\t}\n\t}\n\treturn (head_b);\n}\n\n\nint \tmain(int argc, char *argv[])\n{\n\tint i;\n\tint f;\n\tlong *n;\n\tlong *a;\n\tt_list *head;\n\tt_list *head_b;\n\tt_list *tmp;\n\n\ti = 1;\n\tif (argc > 1)\n\t{\n\t\tif (argc == 2)\n\t\t\targv = check_argum(&argc, argv);\n\t\tif (argc != 4 && argc != 6)\n\t\t{\n\t\t\tcheck_argums(argc, argv);\n\t\t\tif (ft_isdigit(argv[0][1]) || ft_isdigit(argv[0][0]))\n\t\t\t\tf = 1;\n\t\t\telse\n\t\t\t\tf = 0;\n\t\t\ta = malloc(sizeof(int) * (argc - 2));\n\t\t\twhile (i < argc)\n\t\t\t{\n\t\t\t\tn = malloc(sizeof(long));\n\t\t\t\tif (ft_strlen(argv[i - f]) > 11)\n\t\t\t\t{\n\t\t\t\t\twrite(1, \"Error\\n\", 6);\n\t\t\t\t\texit(0);\n\t\t\t\t}\n\t\t\t\t*n = ft_atoi(argv[i - f]);\n\t\t\t\tif (*n > 2147483647 || *n < -2147483648)\n\t\t\t\t{\n\t\t\t\t\twrite(1, \"Error\\n\", 6);\n\t\t\t\t\texit(0);\n\t\t\t\t}\n\t\t\t\ta[i - 1] = *n;\n\t\t\t\tft_list_push_back(&head, n);\n\t\t\t\ti++;\n\t\t\t}\n\t\t\theap_sort(a, argc - 1);\n\t\t\ti = 1;\n\t\t\twhile (i < argc - 1)\n\t\t\t{\n\t\t\t\tif (a[i] == a[i - 1])\n\t\t\t\t\tan_exception();\n\t\t\t\telse\n\t\t\t\t\ti++;\n\t\t\t}\n\t\t\ti = 0;\n\t\t\twhile (i < argc - 1)\n\t\t\t{\n\t\t\t\ttmp = head;\n\t\t\t\twhile (tmp)\n\t\t\t\t{\n\t\t\t\t\tif (a[i] == *(int *) tmp->data)\n\t\t\t\t\t\ttmp->in = i;\n\t\t\t\t\ttmp = tmp->next;\n\t\t\t\t}\n\t\t\t\ti++;\n\t\t\t}\n\t\t\ttmp = head;\n\t\t\twhile (tmp)\n\t\t\t{\n\t\t\t\tprintf(\" %d\\n\", *(int *) tmp->data);\n\t\t\t\ttmp = tmp->next;\n\t\t\t}\n\t\t\thead_b = NULL;\n\t\t\thead_b = from_a_to_b_by_mark(&head, head_b);\n\t\t\ttmp = head;\n\t\t\twhile (tmp)\n\t\t\t{\n\t\t\t\tprintf(\" %d\\n\", *(int *) tmp->data);\n\t\t\t\ttmp = tmp->next;\n\t\t\t}\n\t\t}\n\t\telse if (argc == 4)\n\t\t{\n\t\t\tif (ft_isdigit(argv[0][1]) || ft_isdigit(argv[0][0]))\n\t\t\t\tf = 1;\n\t\t\telse\n\t\t\t\tf = 0;\n\t\t\ta = malloc(sizeof(int) * (argc - 2));\n\t\t\twhile (i < argc)\n\t\t\t{\n\t\t\t\tif (ft_strlen(argv[i - f]) > 11)\n\t\t\t\t{\n\t\t\t\t\twrite(1, \"Error\\n\", 6);\n\t\t\t\t\texit(0);\n\t\t\t\t}\n\t\t\t\ta[i - 1] = ft_atoi(argv[i - f]);\n\t\t\t\tif (a[i - 1] > 2147483647 || a[i - 1] < -2147483648)\n\t\t\t\t{\n\t\t\t\t\twrite(1, \"Error\\n\", 6);\n\t\t\t\t\texit(0);\n\t\t\t\t}\n\t\t\t\ti++;\n\t\t\t}\n\t\t}\n\t}\n\treturn (0);\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/srcs/push_swap.c b/srcs/push_swap.c
+--- a/srcs/push_swap.c	(revision 5b7de0c4a7b7e33a74be8ab9f7a7406f23a88c01)
++++ b/srcs/push_swap.c	(date 1616335503000)
+@@ -319,91 +319,81 @@
+ 	{
+ 		if (argc == 2)
+ 			argv = check_argum(&argc, argv);
+-		if (argc != 4 && argc != 6)
+-		{
++		else
+ 			check_argums(argc, argv);
+-			if (ft_isdigit(argv[0][1]) || ft_isdigit(argv[0][0]))
+-				f = 1;
+-			else
+-				f = 0;
+-			a = malloc(sizeof(int) * (argc - 2));
+-			while (i < argc)
+-			{
+-				n = malloc(sizeof(long));
+-				if (ft_strlen(argv[i - f]) > 11)
+-				{
+-					write(1, "Error\n", 6);
+-					exit(0);
+-				}
+-				*n = ft_atoi(argv[i - f]);
+-				if (*n > 2147483647 || *n < -2147483648)
+-				{
+-					write(1, "Error\n", 6);
+-					exit(0);
+-				}
+-				a[i - 1] = *n;
+-				ft_list_push_back(&head, n);
+-				i++;
+-			}
+-			heap_sort(a, argc - 1);
+-			i = 1;
+-			while (i < argc - 1)
+-			{
+-				if (a[i] == a[i - 1])
+-					an_exception();
+-				else
+-					i++;
+-			}
+-			i = 0;
+-			while (i < argc - 1)
+-			{
+-				tmp = head;
+-				while (tmp)
+-				{
+-					if (a[i] == *(int *) tmp->data)
+-						tmp->in = i;
+-					tmp = tmp->next;
+-				}
+-				i++;
+-			}
+-			tmp = head;
+-			while (tmp)
+-			{
+-				printf(" %d\n", *(int *) tmp->data);
+-				tmp = tmp->next;
+-			}
+-			head_b = NULL;
+-			head_b = from_a_to_b_by_mark(&head, head_b);
+-			tmp = head;
+-			while (tmp)
+-			{
+-				printf(" %d\n", *(int *) tmp->data);
+-				tmp = tmp->next;
+-			}
++		if (ft_isdigit(argv[0][1]) || ft_isdigit(argv[0][0]))
++			f = 1;
++		else
++			f = 0;
++		a = malloc(sizeof(int) * (argc - 2));
++		while (i < argc)
++		{
++			n = malloc(sizeof(long));
++			if (ft_strlen(argv[i - f]) > 11)
++			{
++				write(1, "Error\n", 6);
++				exit(0);
++			}
++			*n = ft_atoi(argv[i - f]);
++			if (*n > 2147483647 || *n < -2147483648)
++			{
++				write(1, "Error\n", 6);
++				exit(0);
++			}
++			a[i - 1] = *n;
++			ft_list_push_back(&head, n);
++			i++;
++		}
++		heap_sort(a, argc - 1);
++		i = 1;
++		while (i < argc - 1)
++		{
++			if (a[i] == a[i - 1])
++				an_exception();
++			else
++				i++;
++		}
++//		cur = head;
++//		while (cur)
++//		{
++//			tmp = cur->next;
++//			while (tmp)
++//			{
++//				if (*(int *) cur->data == *(int *) tmp->data)
++//				{
++//					write(1, "Error\n", 6);
++//					exit(0);
++//				}
++//				tmp = tmp->next;
++//			}
++//			cur = cur->next;
++//		}
++		i = 0;
++		while (i < argc - 1)
++		{
++			tmp = head;
++			while (tmp)
++			{
++				if (a[i] == *(int *) tmp->data)
++					tmp->in = i;
++				tmp = tmp->next;
++			}
++			i++;
++		}
++		tmp = head;
++		while (tmp)
++		{
++			printf(" %d\n", *(int *) tmp->data);
++			tmp = tmp->next;
++		}
++		head_b = NULL;
++		head_b = from_a_to_b_by_mark(&head, head_b);
++		tmp = head;
++		while (tmp)
++		{
++			printf(" %d\n", *(int *) tmp->data);
++			tmp = tmp->next;
+ 		}
+-		else if (argc == 4)
+-		{
+-			if (ft_isdigit(argv[0][1]) || ft_isdigit(argv[0][0]))
+-				f = 1;
+-			else
+-				f = 0;
+-			a = malloc(sizeof(int) * (argc - 2));
+-			while (i < argc)
+-			{
+-				if (ft_strlen(argv[i - f]) > 11)
+-				{
+-					write(1, "Error\n", 6);
+-					exit(0);
+-				}
+-				a[i - 1] = ft_atoi(argv[i - f]);
+-				if (a[i - 1] > 2147483647 || a[i - 1] < -2147483648)
+-				{
+-					write(1, "Error\n", 6);
+-					exit(0);
+-				}
+-				i++;
+-			}
+-		}
+ 	}
+ 	return (0);
+ }
+\ No newline at end of file

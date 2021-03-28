@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="push_swap" targetName="push_swap" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a9e8baf1-59fa-4155-90c9-98d6c97ec70d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/srcs/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parser.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="clangTidyViaClangd" value="false" />
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1pi5dh6TQS6Tu01IvtK1yQZZiYh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/list" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/srcs/libft" />
+      <recent name="$PROJECT_DIR$/cmake-build-debug" />
+      <recent name="$PROJECT_DIR$/srcs/list" />
+      <recent name="$PROJECT_DIR$/srcs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="CMake Application.push_swap">
+    <configuration name="push_swap" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="33 279 12 525 85 49 473 82 556 179 323 615 264 679 673 543 407 624 112 328 290 529 660 669 351 70 335 72 519 267 648 608 94 477 441 398 416 251 629 554 93 524 64 124 682 602 472 495 232 297 249 382 547 614 272 218 561 350 397 200 376 651 572 250 182 144 334 677 169 644 622 145 188 304 685 638 449 439 67 594 248 7 118 -123 -146 8 695 514 213 528 516 -405 656 193 -366 -386 -58 -687 -492 459" REDIRECT_INPUT="false" ELEVATE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="push_swap" TARGET_NAME="push_swap" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="push_swap" RUN_TARGET_NAME="push_swap">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="bonus" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="bonus" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="srcs/%.o" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="srcs/%.o" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.push_swap" />
+      <item itemvalue="Makefile.srcs/%.o" />
+      <item itemvalue="Makefile.all" />
+      <item itemvalue="Makefile.clean" />
+      <item itemvalue="Makefile.bonus" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile.bonus" />
+        <item itemvalue="Makefile.clean" />
+        <item itemvalue="Makefile.all" />
+        <item itemvalue="Makefile.srcs/%.o" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9e8baf1-59fa-4155-90c9-98d6c97ec70d" name="Default Changelist" comment="" />
+      <created>1615653159611</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615653159611</updated>
+      <workItem from="1615653161895" duration="11990000" />
+      <workItem from="1615728665951" duration="64000" />
+      <workItem from="1615732489381" duration="13837000" />
+      <workItem from="1615891513201" duration="3776000" />
+      <workItem from="1615908553526" duration="10124000" />
+      <workItem from="1615971925647" duration="10972000" />
+      <workItem from="1615984411398" duration="616000" />
+      <workItem from="1615985035675" duration="3182000" />
+      <workItem from="1616001354972" duration="5934000" />
+      <workItem from="1616065037185" duration="6629000" />
+      <workItem from="1616081040652" duration="9037000" />
+      <workItem from="1616151185648" duration="14622000" />
+      <workItem from="1616172751318" duration="6495000" />
+      <workItem from="1616236929477" duration="5023000" />
+      <workItem from="1616259412622" duration="8179000" />
+      <workItem from="1616317558737" duration="16217000" />
+      <workItem from="1616336069831" duration="650000" />
+      <workItem from="1616336734647" duration="2968000" />
+      <workItem from="1616344355858" duration="6839000" />
+      <workItem from="1616412887472" duration="4217000" />
+      <workItem from="1616496885327" duration="2462000" />
+      <workItem from="1616577223029" duration="7110000" />
+      <workItem from="1616584370305" duration="898000" />
+      <workItem from="1616585281957" duration="4497000" />
+      <workItem from="1616603867477" duration="10554000" />
+      <workItem from="1616668712175" duration="8358000" />
+      <workItem from="1616677545385" duration="520000" />
+      <workItem from="1616755303053" duration="6411000" />
+      <workItem from="1616761747423" duration="9280000" />
+      <workItem from="1616778681048" duration="4077000" />
+      <workItem from="1616830756071" duration="19905000" />
+      <workItem from="1616862310509" duration="5553000" />
+      <workItem from="1616871843919" duration="1711000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
